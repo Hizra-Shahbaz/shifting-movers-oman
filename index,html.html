@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifting and Movers in Oman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+:root{
+  --orange:#E8640A;
+  --orange-light:#FF8C3A;
+  --orange-dark:#C4520A;
+  --orange-pale:#FFF3E8;
+  --white:#FFFFFF;
+  --off-white:#FAFAFA;
+  --dark:#1A1A1A;
+  --text-mid:#444444;
+  --text-soft:#777777;
+  --shadow-sm:0 6px 20px rgba(232,100,10,0.12);
+  --shadow-md:0 12px 32px rgba(232,100,10,0.18);
+  --shadow-lg:0 20px 50px rgba(0,0,0,0.15);
+}
+html{scroll-behavior:smooth;}
+body{overflow-x:hidden;color:var(--dark);}
+
+/* ══ NAVBAR ══ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  padding:1rem 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(20px);
+  box-shadow:0 2px 20px rgba(0,0,0,0.08);
+  transition:all 0.3s;
+}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo img{width:58px;height:58px;border-radius:22%;object-fit:cover;box-shadow:0 4px 12px rgba(232,100,10,0.25);}
+.nav-brand{
+  font-weight:800;font-size:1.2rem;line-height:1.1;
+  background:linear-gradient(120deg, var(--dark) 0%, var(--orange-dark) 55%, var(--orange) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  letter-spacing:0.3px;
+}
+.nav-brand span{display:block;font-size:0.62rem;font-weight:700;color:var(--orange);letter-spacing:2.6px;text-transform:uppercase;margin-top:3px;}
+.nav-links{display:flex;align-items:center;gap:2.2rem;}
+.nav-links a{text-decoration:none;color:var(--text-mid);font-weight:500;font-size:0.88rem;transition:color 0.2s;}
+.nav-links a:hover{color:var(--orange);}
+.nav-cta{
+  background:var(--orange);color:white!important;
+  padding:10px 24px;border-radius:50px;font-weight:700!important;
+  box-shadow:0 4px 14px rgba(232,100,10,0.35);
+  transition:all 0.3s!important;
+}
+.nav-cta:hover{background:var(--orange-dark)!important;transform:translateY(-2px)!important;box-shadow:var(--shadow-md)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+.hamburger span{width:24px;height:2px;background:var(--dark);border-radius:2px;display:block;}
+
+/* ══ NAV SERVICES DROPDOWN ══ */
+.nav-dropdown{position:relative;}
+.nav-dropdown-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:inherit;color:var(--text-mid);font-weight:500;font-size:0.88rem;
+  display:flex;align-items:center;gap:6px;padding:0;transition:color 0.2s;
+}
+.nav-dropdown-btn:hover{color:var(--orange);}
+.nav-dropdown-arrow{font-size:0.7rem;transition:transform 0.25s;}
+.nav-dropdown.open .nav-dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-panel{
+  position:absolute;top:calc(100% + 16px);left:50%;
+  transform:translateX(-50%) translateY(-8px);
+  background:white;border-radius:16px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+  padding:0.6rem;min-width:230px;
+  display:grid;grid-template-columns:1fr;gap:2px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  z-index:1000;
+}
+.nav-dropdown.open .nav-dropdown-panel{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+.nav-dropdown-panel a{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 14px;border-radius:10px;
+  font-size:0.85rem;font-weight:500;color:var(--text-mid);
+  text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.nav-dropdown-panel a i{width:16px;color:var(--orange);font-size:0.85rem;}
+.nav-dropdown-panel a:hover{background:var(--orange-pale);color:var(--orange-dark);}
+
+/* ══ HERO ══ */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-img{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('https://images.pexels.com/photos/13520550/pexels-photo-13520550.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+  animation:zoomBg 22s ease-in-out infinite alternate;
+}
+@keyframes zoomBg{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(20,10,0,0.75) 0%,rgba(232,100,10,0.55) 55%,rgba(255,140,58,0.25) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:680px;padding:9rem 5% 5rem;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;padding:7px 18px;border-radius:40px;
+  font-size:0.78rem;font-weight:600;
+  margin-bottom:1.5rem;letter-spacing:0.3px;
+  animation:fadeUp 0.6s ease;
+}
+.hero-pill i{color:#FFB07A;}
+.hero h1{
+  font-size:4.2rem;font-weight:900;
+  color:white;line-height:1.05;
+  margin-bottom:1.2rem;
+  animation:fadeUp 0.7s ease 0.1s backwards;
+}
+.hero h1 .accent{color:#FFB07A;}
+.hero p{
+  font-size:1.05rem;color:rgba(255,255,255,0.88);
+  line-height:1.8;margin-bottom:2.2rem;
+  animation:fadeUp 0.7s ease 0.2s backwards;
+}
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:fadeUp 0.7s ease 0.3s backwards;
+}
+.btn-orange{
+  background:var(--orange);color:white;
+  padding:15px 34px;border-radius:50px;
+  font-weight:700;font-size:1rem;border:none;cursor:pointer;
+  box-shadow:0 6px 22px rgba(232,100,10,0.45);
+  transition:all 0.3s;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 10px 28px rgba(232,100,10,0.5);}
+.btn-white{
+  background:rgba(255,255,255,0.15);color:white;
+  padding:15px 34px;border-radius:50px;
+  font-weight:600;font-size:1rem;border:2px solid rgba(255,255,255,0.55);
+  cursor:pointer;transition:all 0.3s;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;
+  backdrop-filter:blur(6px);
+}
+.btn-white:hover{background:rgba(255,255,255,0.25);border-color:white;transform:translateY(-3px);}
+.hero-badges{
+  position:absolute;bottom:2.5rem;right:5%;z-index:2;
+  display:flex;gap:1.2rem;
+  animation:fadeUp 0.8s ease 0.4s backwards;
+}
+.hero-badge{
+  background:rgba(255,255,255,0.13);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.22);
+  border-radius:18px;padding:1rem 1.4rem;
+  text-align:center;color:white;
+}
+.hero-badge h3{font-size:1.9rem;font-weight:900;color:#FFB07A;}
+.hero-badge p{font-size:0.72rem;opacity:0.85;margin-top:2px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══ SECTIONS COMMON ══ */
+.section{padding:5.5rem 5%;}
+.section-label{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--orange-pale);color:var(--orange);
+  padding:6px 16px;border-radius:40px;
+  font-size:0.77rem;font-weight:700;
+  margin-bottom:1rem;letter-spacing:0.4px;
+}
+.section-header{text-align:center;margin-bottom:3.5rem;}
+.section-header h2{font-size:2.6rem;font-weight:900;color:var(--dark);margin-bottom:0.8rem;}
+.section-header p{color:var(--text-soft);font-size:0.98rem;max-width:580px;margin:0 auto;line-height:1.8;}
+.orange-line{width:52px;height:4px;background:var(--orange);border-radius:4px;margin:0.8rem auto 0;}
+
+/* ══ SERVICES GRID ══ */
+.services-section{
+  background:var(--off-white);
+  position:relative;overflow:hidden;
+}
+.services-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/4246094/pexels-photo-4246094.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+  opacity:0.08;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.8rem;
+  position:relative;z-index:1;
+}
+.srv-card{
+  background:white;border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.07);
+  transition:all 0.35s;
+  border:1px solid rgba(0,0,0,0.05);
+}
+.srv-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-md);}
+.srv-card-img{
+  width:100%;height:200px;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.4s;
+}
+.srv-card:hover .srv-card-img{transform:scale(1.04);}
+.srv-img-wrap{overflow:hidden;position:relative;}
+.srv-img-overlay{
+  position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(to top,white,transparent);
+}
+.srv-body{padding:1.5rem;}
+.srv-icon{
+  width:50px;height:50px;
+  background:var(--orange-pale);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:var(--orange);
+  margin-bottom:1rem;
+}
+.srv-body h4{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem;}
+.srv-body p{font-size:0.83rem;color:var(--text-soft);line-height:1.7;margin-bottom:1.1rem;}
+.srv-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;}
+.srv-tag{background:var(--orange-pale);color:var(--orange);padding:4px 11px;border-radius:40px;font-size:0.7rem;font-weight:600;}
+.srv-link{
+  display:inline-flex;align-items:center;gap:7px;
+  color:var(--orange);font-weight:700;font-size:0.82rem;
+  text-decoration:none;transition:gap 0.2s;
+}
+.srv-link:hover{gap:12px;}
+
+/* ══ WHY CHOOSE US ══ */
+.why-section{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg, #FFF8F2 0%, #FFF0E4 100%);
+}
+.why-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+  opacity:0.08;
+}
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:3.5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.why-img-wrap{border-radius:28px;overflow:hidden;position:relative;box-shadow:var(--shadow-lg);}
+.why-img-wrap img{width:100%;height:500px;object-fit:cover;display:block;}
+.why-img-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:white;border-radius:18px;
+  padding:1rem 1.4rem;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+}
+.why-badge-icon{
+  width:46px;height:46px;
+  background:var(--orange-pale);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:var(--orange);
+}
+.why-badge-text h4{font-weight:800;color:var(--dark);font-size:0.95rem;}
+.why-badge-text p{font-size:0.72rem;color:var(--text-soft);}
+.why-right{}
+.why-feature{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:1.4rem;border-radius:20px;
+  background:var(--off-white);
+  margin-bottom:1.1rem;
+  border:1px solid rgba(0,0,0,0.04);
+  transition:all 0.3s;
+}
+.why-feature:hover{background:var(--orange-pale);border-color:rgba(232,100,10,0.15);transform:translateX(6px);}
+.why-feature-icon{
+  width:50px;height:50px;flex-shrink:0;
+  background:var(--orange);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:white;
+}
+.why-feature h4{font-weight:700;color:var(--dark);margin-bottom:4px;font-size:0.95rem;}
+.why-feature p{font-size:0.83rem;color:var(--text-soft);line-height:1.6;}
+
+/* ══ STATS BANNER ══ */
+.stats-banner{
+  position:relative;overflow:hidden;
+  padding:5rem 5%;
+}
+.stats-banner-img{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/14005602/pexels-photo-14005602.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+}
+.stats-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(232,100,10,0.93),rgba(196,82,10,0.88));
+}
+.stats-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  text-align:center;
+}
+.stat-num{font-size:3.2rem;font-weight:900;color:white;line-height:1;}
+.stat-label{font-size:0.85rem;color:rgba(255,255,255,0.85);margin-top:6px;font-weight:500;}
+.stat-divider{width:1px;background:rgba(255,255,255,0.25);position:absolute;top:20%;bottom:20%;right:0;}
+
+/* ══ PROCESS ══ */
+.process-section{background:var(--orange-pale);}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  position:relative;
+}
+.process-grid::before{
+  content:'';position:absolute;
+  top:2.5rem;left:12.5%;right:12.5%;height:2px;
+  background:linear-gradient(90deg,var(--orange),var(--orange-light));
+  z-index:0;
+}
+.process-step{text-align:center;position:relative;z-index:1;}
+.process-num{
+  width:54px;height:54px;margin:0 auto 1.2rem;
+  background:var(--orange);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:white;font-weight:800;
+  border:5px solid var(--orange-pale);
+  box-shadow:0 4px 16px rgba(232,100,10,0.3);
+}
+.process-step h4{font-weight:700;color:var(--dark);margin-bottom:6px;font-size:0.95rem;}
+.process-step p{font-size:0.81rem;color:var(--text-soft);line-height:1.65;}
+
+/* ══ TESTIMONIALS ══ */
+.testimonials-section{
+  position:relative;overflow:hidden;
+  background:var(--off-white);
+}
+.testi-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+  opacity:0.07;
+}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;
+  position:relative;z-index:1;
+}
+.testi-card{
+  background:white;border-radius:24px;padding:2rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.07);
+  border:1px solid rgba(0,0,0,0.05);
+  transition:all 0.3s;
+}
+.testi-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.testi-quote{font-size:2.5rem;color:var(--orange);line-height:1;margin-bottom:0.5rem;}
+.testi-stars{color:var(--orange);font-size:0.9rem;margin-bottom:1rem;letter-spacing:1px;}
+.testi-text{color:var(--text-mid);line-height:1.75;font-size:0.88rem;font-style:italic;margin-bottom:1.5rem;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:white;font-size:1rem;
+}
+.testi-name{font-weight:700;color:var(--dark);font-size:0.88rem;}
+.testi-loc{font-size:0.74rem;color:var(--text-soft);}
+
+/* ══ PAYMENT METHODS ══ */
+.payment-section{background:linear-gradient(160deg, #FFFFFF 0%, #FFF3E8 100%);}
+.payment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;max-width:820px;margin:0 auto;}
+.payment-card{
+  background:var(--off-white);border-radius:24px;padding:2rem;
+  text-align:center;border:1.5px solid rgba(0,0,0,0.05);
+  transition:all 0.3s;
+}
+.payment-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(232,100,10,0.2);}
+.payment-icon{
+  width:64px;height:64px;margin:0 auto 1.2rem;
+  background:var(--orange);border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;color:white;
+}
+.payment-card h4{font-weight:800;color:var(--dark);font-size:1.05rem;margin-bottom:0.6rem;}
+.payment-card p{font-size:0.85rem;color:var(--text-soft);line-height:1.65;margin-bottom:1rem;}
+.payment-badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.payment-badge{background:white;border:1px solid rgba(0,0,0,0.08);padding:6px 14px;border-radius:30px;font-size:0.78rem;font-weight:700;color:var(--orange-dark);}
+.payment-number{margin-top:0.8rem;font-size:0.95rem;font-weight:800;color:var(--orange);}
+
+/* ══ CONTACT ══ */
+.contact-section{
+  position:relative;overflow:hidden;
+}
+.contact-bg-img{
+  position:absolute;inset:0;
+  background-image:url('https://images.pexels.com/photos/7464703/pexels-photo-7464703.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-size:cover;background-position:center;
+}
+.contact-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(20,10,0,0.88),rgba(30,15,5,0.82));
+}
+.contact-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;
+}
+.contact-left h2{font-size:2.5rem;font-weight:900;color:white;margin-bottom:0.8rem;}
+.contact-left p{color:rgba(255,255,255,0.78);line-height:1.8;margin-bottom:2rem;font-size:0.95rem;}
+.cinfo-cards{display:flex;flex-direction:column;gap:1rem;}
+.cinfo-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:18px;padding:1.2rem 1.5rem;
+  display:flex;align-items:center;gap:15px;
+  text-decoration:none;transition:all 0.3s;
+}
+.cinfo-card:hover{background:rgba(232,100,10,0.25);border-color:rgba(232,100,10,0.4);transform:translateX(6px);}
+.cinfo-icon{
+  width:46px;height:46px;flex-shrink:0;
+  background:var(--orange);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;color:white;
+}
+.cinfo-label{font-size:0.75rem;color:rgba(255,255,255,0.6);font-weight:500;}
+.cinfo-val{font-size:1rem;font-weight:700;color:white;}
+.contact-form{
+  background:white;border-radius:28px;
+  padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+.contact-form h3{font-size:1.6rem;font-weight:800;color:var(--dark);margin-bottom:0.4rem;}
+.contact-form > p{color:var(--text-soft);font-size:0.85rem;margin-bottom:2rem;}
+.fg{margin-bottom:1.1rem;}
+.fg label{display:block;font-weight:600;font-size:0.8rem;color:var(--dark);margin-bottom:5px;}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:12px 15px;
+  border:1.5px solid #E8E8E8;border-radius:12px;
+  font-size:0.87rem;font-family:inherit;color:var(--dark);
+  transition:all 0.25s;background:white;outline:none;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,100,10,0.1);}
+.fg textarea{resize:vertical;min-height:90px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-btn{
+  width:100%;padding:15px;
+  background:var(--orange);color:white;
+  border:none;border-radius:14px;
+  font-size:0.98rem;font-weight:700;cursor:pointer;
+  transition:all 0.3s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 6px 20px rgba(232,100,10,0.3);
+}
+.submit-btn:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,100,10,0.4);}
+
+/* ══ FOOTER ══ */
+footer{background:#111111;padding:3.5rem 5% 2rem;}
+.footer-top{
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;
+  padding-bottom:2.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  margin-bottom:2rem;
+}
+.footer-brand img{width:64px;height:64px;border-radius:22%;margin-bottom:1rem;box-shadow:0 4px 14px rgba(232,100,10,0.3);}
+.footer-brand-name{font-size:1.2rem;font-weight:800;color:white;margin-bottom:0.2rem;letter-spacing:0.3px;}
+.footer-brand-tag{display:block;font-size:0.66rem;font-weight:700;color:var(--orange);letter-spacing:2.8px;text-transform:uppercase;margin-bottom:0.9rem;}
+.footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.75;}
+.footer-col h4{color:white;font-weight:700;margin-bottom:1.2rem;font-size:0.88rem;position:relative;padding-bottom:0.7rem;}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:2px;background:var(--orange);border-radius:2px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
+.footer-col ul li a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;transition:color 0.2s;display:flex;align-items:center;gap:6px;}
+.footer-col ul li a:hover{color:var(--orange);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.35);}
+.footer-socials{display:flex;gap:10px;}
+.soc-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.07);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.5);text-decoration:none;
+  font-size:0.82rem;transition:all 0.3s;
+}
+.soc-btn:hover{background:var(--orange);color:white;transform:translateY(-2px);}
+
+/* ══ FLOATING CALL ══ */
+.float-call{
+  position:fixed;bottom:2rem;right:2rem;z-index:998;
+  background:var(--orange);color:white;
+  padding:13px 22px;border-radius:50px;
+  display:flex;align-items:center;gap:9px;
+  font-weight:700;font-size:0.88rem;
+  box-shadow:0 8px 28px rgba(232,100,10,0.45);
+  text-decoration:none;
+  animation:floatPop 3s ease-in-out infinite;
+}
+@keyframes floatPop{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.float-call i{animation:ring 2s ease-in-out infinite;}
+@keyframes ring{0%,100%{transform:rotate(0)}20%{transform:rotate(-15deg)}40%{transform:rotate(15deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(8deg)}}
+
+/* ══ RESPONSIVE ══ */
+
+/* Large tablets / small laptops */
+@media(max-width:1100px){
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.2rem;}
+  .hero h1{font-size:3.4rem;}
+  .stats-inner{gap:1.4rem;}
+}
+
+/* Tablets */
+@media(max-width:900px){
+  .why-grid,.contact-inner{grid-template-columns:1fr;}
+  .why-img-wrap img{height:380px;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);row-gap:2.2rem;}
+  .process-grid{grid-template-columns:repeat(2,1fr);row-gap:2.5rem;}
+  .process-grid::before{display:none;}
+  .testi-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-content{max-width:600px;}
+  .contact-form{padding:2rem;}
+}
+
+/* Small tablets / large phones (landscape) */
+@media(max-width:768px){
+  .navbar{padding:0.8rem 5%;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-dropdown{width:100%;}
+  .nav-dropdown-btn{width:100%;justify-content:space-between;font-size:0.95rem;padding:4px 0;}
+  .nav-dropdown-panel{
+    position:static;transform:none;width:100%;
+    box-shadow:none;border:1px solid rgba(0,0,0,0.06);
+    margin-top:0.6rem;max-height:0;padding:0 0.6rem;overflow:hidden;
+    opacity:1;visibility:visible;pointer-events:auto;
+  }
+  .nav-dropdown.open .nav-dropdown-panel{max-height:420px;padding:0.6rem;transform:none;}
+  .hero{min-height:auto;padding-bottom:2rem;}
+  .hero-content{padding:7.5rem 6% 3rem;max-width:100%;}
+  .hero h1{font-size:2.8rem;}
+  .hero p{font-size:0.95rem;}
+  .hero-btns{width:100%;}
+  .btn-orange,.btn-white{flex:1;justify-content:center;text-align:center;}
+  .hero-badges{position:static;margin:2rem 6% 0;flex-wrap:wrap;gap:0.8rem;justify-content:center;}
+  .hero-badge{flex:1;min-width:120px;}
+  .section{padding:3.5rem 6%;}
+  .section-header h2{font-size:2rem;}
+  .section-header p{font-size:0.9rem;}
+  .services-grid{grid-template-columns:1fr 1fr;gap:1.2rem;}
+  .srv-card-img{height:160px;}
+  .stats-banner{padding:3.5rem 6%;}
+  .stat-num{font-size:2.4rem;}
+  .why-img-wrap img{height:320px;}
+  .why-img-badge{padding:0.8rem 1.1rem;left:1.2rem;bottom:1.2rem;}
+  .process-grid{grid-template-columns:1fr 1fr;gap:2rem 1.2rem;}
+  .testi-grid{grid-template-columns:1fr;}
+  .payment-grid{grid-template-columns:1fr;}
+  .fg-row{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;gap:2rem;text-align:left;}
+  .footer-bottom{flex-direction:column;gap:1rem;text-align:center;}
+  .float-call span{display:none;}
+  .float-call{padding:14px;border-radius:50%;}
+}
+
+/* Phones */
+@media(max-width:560px){
+  .nav-logo img{width:48px;height:48px;}
+  .nav-brand{font-size:0.95rem;}
+  .nav-brand span{font-size:0.62rem;}
+  .hero-pill{font-size:0.7rem;padding:6px 14px;}
+  .hero h1{font-size:2.2rem;}
+  .hero p{font-size:0.88rem;line-height:1.7;}
+  .hero-btns{flex-direction:column;}
+  .hero-badges{
+    position:relative;
+    bottom:auto;right:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.7rem;
+    margin-top:2rem;
+    width:100%;
+  }
+  .hero-badge{padding:0.8rem 1rem;min-width:0;text-align:center;}
+  .hero-badge h3{font-size:1.4rem;}
+  .hero-badge p{font-size:0.65rem;}
+  .section-header h2{font-size:1.7rem;}
+  .services-grid{grid-template-columns:1fr;}
+  .srv-card-img{height:190px;}
+  .srv-body{padding:1.3rem;}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:1.6rem;}
+  .stat-num{font-size:2rem;}
+  .stat-label{font-size:0.75rem;}
+  .why-img-wrap img{height:260px;}
+  .why-img-badge{flex-direction:row;}
+  .why-feature{padding:1.1rem;gap:12px;}
+  .why-feature-icon{width:42px;height:42px;font-size:1.1rem;}
+  .process-grid{grid-template-columns:1fr;gap:1.8rem;}
+  .testi-card{padding:1.6rem;}
+  .contact-left h2{font-size:1.9rem;}
+  .contact-form{padding:1.6rem;border-radius:20px;}
+  .contact-form h3{font-size:1.3rem;}
+  .cinfo-card{padding:1rem 1.1rem;gap:12px;}
+  .cinfo-icon{width:40px;height:40px;font-size:1.05rem;}
+  .footer-brand img{width:56px;height:56px;}
+  .float-call{bottom:1.2rem;right:1.2rem;}
+}
+
+/* Very small phones */
+@media(max-width:380px){
+  .hero h1{font-size:1.9rem;}
+  .hero-badges{grid-template-columns:1fr 1fr;}
+  .hero-badge{min-width:0;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .section{padding:2.8rem 5%;}
+  .nav-brand span{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgNjgwIDY4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHRpdGxlPlNoaWZ0aW5nIGFuZCBNb3ZlcnMgaW4gT21hbiBsb2dvPC90aXRsZT4KPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgcng9IjE1MCIgZmlsbD0iI0U4NjQwQSIvPgo8cmVjdCB4PSI3MiIgeT0iNzIiIHdpZHRoPSI1MzYiIGhlaWdodD0iNTM2IiByeD0iMTIwIiBmaWxsPSIjRkZGRkZGIi8+CjxsaW5lIHgxPSIxMDAiIHkxPSIyMjAiIHgyPSIxNDgiIHkyPSIyMjAiIHN0cm9rZT0iI0ZGRDlCOCIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjExMiIgeTE9IjI0MCIgeDI9IjE0OCIgeTI9IjI0MCIgc3Ryb2tlPSIjRkZEOUI4IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iMTI0IiB5MT0iMjYwIiB4Mj0iMTQ4IiB5Mj0iMjYwIiBzdHJva2U9IiNGRkQ5QjgiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxyZWN0IHg9IjE2MCIgeT0iMjAwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjEyMCIgcng9IjEwIiBmaWxsPSIjMUExQTFBIi8+CjxyZWN0IHg9IjE3OCIgeT0iMjE4IiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHJ4PSI0IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjEyIi8+CjxyZWN0IHg9IjM4MCIgeT0iMjQwIiB3aWR0aD0iOTIiIGhlaWdodD0iODAiIHJ4PSIxMCIgZmlsbD0iI0U4NjQwQSIvPgo8cmVjdCB4PSIzOTgiIHk9IjI1NCIgd2lkdGg9IjQyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iI0ZGRkZGRiIvPgo8Y2lyY2xlIGN4PSI0NzgiIGN5PSIyODAiIHI9IjgiIGZpbGw9IiNGRkQ5QjgiLz4KPHJlY3QgeD0iMTUwIiB5PSIzMTIiIHdpZHRoPSIzMzIiIGhlaWdodD0iMTQiIHJ4PSI0IiBmaWxsPSIjMUExQTFBIi8+CjxjaXJjbGUgY3g9IjIzMiIgY3k9IjMzNiIgcj0iMzQiIGZpbGw9IiMxQTFBMUEiLz4KPGNpcmNsZSBjeD0iMjMyIiBjeT0iMzM2IiByPSIxMyIgZmlsbD0iI0ZGRkZGRiIvPgo8Y2lyY2xlIGN4PSI0MjAiIGN5PSIzMzYiIHI9IjM0IiBmaWxsPSIjMUExQTFBIi8+CjxjaXJjbGUgY3g9IjQyMCIgY3k9IjMzNiIgcj0iMTMiIGZpbGw9IiNGRkZGRkYiLz4KPHRleHQgeD0iMzQwIiB5PSI0NTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEiIGZpbGw9IiMxQTFBMUEiPlNISUZUSU5HICZhbXA7IE1PVkVSUzwvdGV4dD4KPHJlY3QgeD0iMjk1IiB5PSI0NjgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iI0U4NjQwQSIvPgo8dGV4dCB4PSIzNDAiIHk9IjUwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iMyIgZmlsbD0iI0U4NjQwQSI+SU4gT01BTjwvdGV4dD4KPC9zdmc+Cg==" alt="Shifting and Movers in Oman">
+    <div class="nav-brand">Shifting &amp; Movers<span>in Oman</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <div class="nav-dropdown" id="servicesDropdown">
+      <button class="nav-dropdown-btn" onclick="toggleServicesDropdown(event)">
+        Services <i class="fas fa-chevron-down nav-dropdown-arrow"></i>
+      </button>
+      <div class="nav-dropdown-panel" id="servicesPanel">
+        <a href="#srv-house-moving" onclick="closeServicesDropdown()"><i class="fas fa-home"></i> House Moving</a>
+        <a href="#srv-villa-moving" onclick="closeServicesDropdown()"><i class="fas fa-house-chimney"></i> Villa Moving</a>
+        <a href="#srv-office-moving" onclick="closeServicesDropdown()"><i class="fas fa-building"></i> Office Moving</a>
+        <a href="#srv-apartment-movers" onclick="closeServicesDropdown()"><i class="fas fa-city"></i> Apartment Movers</a>
+        <a href="#srv-local-moving" onclick="closeServicesDropdown()"><i class="fas fa-location-dot"></i> Local Moving</a>
+        <a href="#srv-long-distance-moving" onclick="closeServicesDropdown()"><i class="fas fa-route"></i> Long-Distance Moving</a>
+        <a href="#srv-professional-packing" onclick="closeServicesDropdown()"><i class="fas fa-box-open"></i> Professional Packing</a>
+        <a href="#srv-unpacking-service" onclick="closeServicesDropdown()"><i class="fas fa-inbox"></i> Unpacking Service</a>
+        <a href="#srv-loading-unloading" onclick="closeServicesDropdown()"><i class="fas fa-truck-ramp-box"></i> Loading &amp; Unloading</a>
+        <a href="#srv-furniture-moving" onclick="closeServicesDropdown()"><i class="fas fa-couch"></i> Furniture Moving</a>
+        <a href="#srv-storage-service" onclick="closeServicesDropdown()"><i class="fas fa-warehouse"></i> Storage Service</a>
+        <a href="#srv-moving-services" onclick="closeServicesDropdown()"><i class="fas fa-truck-moving"></i> Moving Services</a>
+      </div>
+    </div>
+    <a href="#why-us">Why Us</a>
+    <a href="#process">Process</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="nav-cta"><i class="fas fa-phone-alt"></i>&nbsp; Get a Quote</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-pill"><i class="fas fa-map-marker-alt"></i> Serving All Over Oman</div>
+    <h1>MOVE <span class="accent">SMART.</span><br>LIVE BETTER.</h1>
+    <p>Professional moving solutions for homes, offices and businesses across Oman. Safe, affordable, and always on time — your trust is our responsibility.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-orange"><i class="fas fa-truck-moving"></i> Book Your Move</a>
+      <a href="tel:+96894806052" class="btn-white"><i class="fas fa-phone-alt"></i> +968 9480 6052</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><h3>5K+</h3><p>Happy Clients</p></div>
+      <div class="hero-badge"><h3>10+</h3><p>Years Experience</p></div>
+      <div class="hero-badge"><h3>100%</h3><p>Safe Delivery</p></div>
+      <div class="hero-badge"><h3>24/7</h3><p>Support</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="section services-section" id="services">
+  <div class="services-bg"></div>
+  <div class="section-header">
+    <div class="section-label"><i class="fas fa-star"></i> Our Services</div>
+    <h2>What We Offer</h2>
+    <p>From single rooms to large corporate offices — every move handled with precision, care, and professionalism.</p>
+    <div class="orange-line"></div>
+  </div>
+  <div class="services-grid">
+
+    <div class="srv-card" id="srv-house-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/7464703/pexels-photo-7464703.jpeg?auto=compress&cs=tinysrgb&w=600" alt="House Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-home"></i></div>
+        <h4>House Moving</h4>
+        <p>Complete household relocation — packing, loading, transport, and unpacking. We treat your home like our own.</p>
+        <div class="srv-tags"><span class="srv-tag">Packing</span><span class="srv-tag">Loading</span><span class="srv-tag">Unpacking</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-villa-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/29453302/pexels-photo-29453302.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Villa Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-house-chimney"></i></div>
+        <h4>Villa Moving</h4>
+        <p>Large villa relocations handled with a bigger crew and bigger trucks — every room packed and moved with full care.</p>
+        <div class="srv-tags"><span class="srv-tag">Full Villa</span><span class="srv-tag">Large Crew</span><span class="srv-tag">Big Trucks</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-office-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Office Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-building"></i></div>
+        <h4>Office Moving</h4>
+        <p>Minimal downtime, maximum efficiency. We relocate your entire office — furniture, IT equipment, and files — overnight if needed.</p>
+        <div class="srv-tags"><span class="srv-tag">IT Equipment</span><span class="srv-tag">Furniture</span><span class="srv-tag">Documents</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-apartment-movers">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/1850613/pexels-photo-1850613.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Apartment Movers Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-city"></i></div>
+        <h4>Apartment Movers</h4>
+        <p>Tight stairwells, narrow lifts, no problem — our team is experienced in smooth apartment and flat relocations of any floor.</p>
+        <div class="srv-tags"><span class="srv-tag">Lifts &amp; Stairs</span><span class="srv-tag">Any Floor</span><span class="srv-tag">Careful Handling</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-local-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/31043129/pexels-photo-31043129.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Local Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-location-dot"></i></div>
+        <h4>Local Moving</h4>
+        <p>Moving within the same city or neighborhood? Our local moving team gets it done quickly, safely, and affordably.</p>
+        <div class="srv-tags"><span class="srv-tag">Same-Day</span><span class="srv-tag">Within City</span><span class="srv-tag">Quick Turnaround</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-long-distance-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/14005602/pexels-photo-14005602.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Long Distance Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-route"></i></div>
+        <h4>Long-Distance Moving</h4>
+        <p>Moving between cities across Oman? Our fleet handles inter-city relocations with secure loading and careful long-haul transport.</p>
+        <div class="srv-tags"><span class="srv-tag">Inter-City</span><span class="srv-tag">Secure Loading</span><span class="srv-tag">Long Haul</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-professional-packing">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/7464509/pexels-photo-7464509.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Professional Packing Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-box-open"></i></div>
+        <h4>Professional Packing</h4>
+        <p>Premium-quality packing materials and expert techniques ensure every fragile item, antique, and appliance arrives intact.</p>
+        <div class="srv-tags"><span class="srv-tag">Bubble Wrap</span><span class="srv-tag">Fragile Items</span><span class="srv-tag">Labeling</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-unpacking-service">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/4246219/pexels-photo-4246219.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Unpacking Service Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-inbox"></i></div>
+        <h4>Unpacking Service</h4>
+        <p>We don't just drop boxes and leave — our team unpacks and arranges everything in your new home exactly as you want it.</p>
+        <div class="srv-tags"><span class="srv-tag">Unboxing</span><span class="srv-tag">Arranging</span><span class="srv-tag">Debris Removal</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-loading-unloading">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/4487361/pexels-photo-4487361.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Loading and Unloading Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-truck-ramp-box"></i></div>
+        <h4>Loading &amp; Unloading</h4>
+        <p>Heavy-lifting handled right. Our trained crew loads and unloads your belongings safely, efficiently, and without damage.</p>
+        <div class="srv-tags"><span class="srv-tag">Safe Lifting</span><span class="srv-tag">Trained Crew</span><span class="srv-tag">No Damage</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-furniture-moving">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Furniture Moving Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-couch"></i></div>
+        <h4>Furniture Moving</h4>
+        <p>Sofas, beds, wardrobes, and heavy furniture moved, disassembled, and reassembled safely at your new location.</p>
+        <div class="srv-tags"><span class="srv-tag">Sofas</span><span class="srv-tag">Wardrobes</span><span class="srv-tag">Heavy Items</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-storage-service">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/4483943/pexels-photo-4483943.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Storage Service Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-warehouse"></i></div>
+        <h4>Storage Service</h4>
+        <p>Climate-controlled, 24/7 CCTV-monitored warehouses keep your belongings safe for days, weeks, or months — flexible plans available.</p>
+        <div class="srv-tags"><span class="srv-tag">Climate Control</span><span class="srv-tag">CCTV 24/7</span><span class="srv-tag">Flexible Plans</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="srv-moving-services">
+      <div class="srv-img-wrap">
+        <img class="srv-card-img" src="https://images.pexels.com/photos/5025664/pexels-photo-5025664.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Moving Services Oman">
+        <div class="srv-img-overlay"></div>
+      </div>
+      <div class="srv-body">
+        <div class="srv-icon"><i class="fas fa-truck-moving"></i></div>
+        <h4>Moving Services</h4>
+        <p>Not sure what you need? Our complete end-to-end moving solution covers everything from planning to settling into your new place.</p>
+        <div class="srv-tags"><span class="srv-tag">End-to-End</span><span class="srv-tag">Custom Plans</span><span class="srv-tag">Full Support</span></div>
+        <a href="#contact" class="srv-link">Book Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ STATS BANNER ═══ -->
+<div class="stats-banner">
+  <div class="stats-banner-img"></div>
+  <div class="stats-banner-overlay"></div>
+  <div class="stats-inner">
+    <div><div class="stat-num">5,000+</div><div class="stat-label">Successful Moves</div></div>
+    <div><div class="stat-num">10+</div><div class="stat-label">Years in Business</div></div>
+    <div><div class="stat-num">50+</div><div class="stat-label">Expert Team Members</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Client Satisfaction</div></div>
+  </div>
+</div>
+
+<!-- ═══ WHY CHOOSE US ═══ -->
+<section class="section why-section" id="why-us">
+  <div class="why-bg"></div>
+  <div class="section-header">
+    <div class="section-label"><i class="fas fa-shield-alt"></i> Why Choose Us</div>
+    <h2>Your Trust, Our Responsibility</h2>
+    <p>We do not just move boxes — we move lives. Here is why thousands of families and businesses across Oman trust us.</p>
+    <div class="orange-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-img-wrap">
+      <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional movers at work">
+      <div class="why-img-badge">
+        <div class="why-badge-icon"><i class="fas fa-award"></i></div>
+        <div class="why-badge-text"><h4>#1 Trusted Movers</h4><p>in Oman since 2014</p></div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="why-feature">
+        <div class="why-feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <div><h4>Safe &amp; Secure</h4><p>All belongings are fully insured during transit. We use premium packing materials and trained handlers for zero-damage delivery — guaranteed.</p></div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon"><i class="fas fa-users"></i></div>
+        <div><h4>Expert Team</h4><p>Our crew undergoes rigorous training in packing, heavy-lifting safety, and customer service to deliver a world-class moving experience every time.</p></div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon"><i class="fas fa-clock"></i></div>
+        <div><h4>On Time, Every Time</h4><p>We respect your schedule. Real-time tracking and strict punctuality ensure your move happens exactly when planned — no delays, no excuses.</p></div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon"><i class="fas fa-tags"></i></div>
+        <div><h4>Affordable Prices</h4><p>Transparent, competitive pricing with absolutely no hidden fees. Get your free quote online and see exactly what you pay before we lift a single box.</p></div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <div><h4>Serving All of Oman</h4><p>From Muscat to Salalah, Sohar to Sur — our fleet covers every governorate in the Sultanate with the same premium-quality service.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section process-section" id="process">
+  <div class="section-header">
+    <div class="section-label"><i class="fas fa-route"></i> How It Works</div>
+    <h2>Your Move in 4 Simple Steps</h2>
+    <p>We have streamlined the entire moving process so you can relax while our experts handle everything seamlessly.</p>
+    <div class="orange-line"></div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-num"><i class="fas fa-phone-alt"></i></div>
+      <h4>1. Contact Us</h4>
+      <p>Call us or fill out our online form. Our team responds within 30 minutes to discuss your requirements and preferred move date.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num"><i class="fas fa-clipboard-list"></i></div>
+      <h4>2. Free Survey</h4>
+      <p>We conduct a free on-site survey to assess the volume, special items, and logistics — giving you a precise, no-surprise quote.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num"><i class="fas fa-box-open"></i></div>
+      <h4>3. Pack &amp; Move</h4>
+      <p>Our trained crew carefully packs, loads, and transports every item with full insurance cover and real-time tracking throughout.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num"><i class="fas fa-check-circle"></i></div>
+      <h4>4. Settle In</h4>
+      <p>We unload, unpack, and arrange everything in your new space exactly how you want it. Sit back and enjoy your new home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="testi-bg"></div>
+  <div class="section-header">
+    <div class="section-label"><i class="fas fa-star"></i> Client Reviews</div>
+    <h2>What Our Clients Say</h2>
+    <p>Real stories from real families and businesses who trusted us with their most important move across Oman.</p>
+    <div class="orange-line"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Absolutely outstanding service! The team was punctual, professional, and handled all my fragile items with incredible care. My entire villa was relocated without a single scratch.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div><div class="testi-name">Ahmed Al-Rashdi</div><div class="testi-loc"><i class="fas fa-map-marker-alt"></i> Muscat, Oman</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">We moved our entire office to a new building in one day with zero business downtime. Shifting and Movers coordinated every detail perfectly. Highly recommend for corporate moves!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div><div class="testi-name">Sara Al-Balushi</div><div class="testi-loc"><i class="fas fa-map-marker-alt"></i> Sohar, Oman</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">From packing to unpacking, the crew was friendly, fast, and incredibly organized. The pricing was completely transparent with no hidden fees. I will never use another moving company.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div><div class="testi-name">Mohammed Al-Hinai</div><div class="testi-loc"><i class="fas fa-map-marker-alt"></i> Salalah, Oman</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAYMENT METHODS ═══ -->
+<section class="section payment-section" id="payment">
+  <div class="section-header">
+    <div class="section-label"><i class="fas fa-wallet"></i> Payment Methods</div>
+    <h2>Easy &amp; Flexible Payments</h2>
+    <p>Pay however it's convenient for you — cash on the spot or instantly through mobile wallet.</p>
+    <div class="orange-line"></div>
+  </div>
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="payment-icon"><i class="fas fa-money-bill-wave"></i></div>
+      <h4>Cash Payment</h4>
+      <p>Pay locally in cash directly to our team once the job is done — simple, no extra charges.</p>
+      <div class="payment-badges"><span class="payment-badge">Pay on Completion</span></div>
+    </div>
+    <div class="payment-card">
+      <div class="payment-icon"><i class="fas fa-mobile-screen-button"></i></div>
+      <h4>Mobile Wallet</h4>
+      <p>Send payment instantly via JazzCash or EasyPaisa to our contact number below.</p>
+      <div class="payment-badges">
+        <span class="payment-badge">JazzCash</span>
+        <span class="payment-badge">EasyPaisa</span>
+      </div>
+      <div class="payment-number"><i class="fas fa-phone-alt"></i> +968 9480 6052</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section contact-section" id="contact">
+  <div class="contact-bg-img"></div>
+  <div class="contact-overlay"></div>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label" style="background:rgba(255,255,255,0.12);color:#FFB07A;border:1px solid rgba(255,140,58,0.3);">
+        <i class="fas fa-truck-moving"></i> Ready to Move?
+      </div>
+      <h2>Let's Plan<br>Your Move Today</h2>
+      <p>Get a completely free quote within 30 minutes. Our team is available 7 days a week, around the clock, to help plan your perfect move anywhere in Oman.</p>
+      <div class="cinfo-cards">
+        <a href="tel:+96894806052" class="cinfo-card">
+          <div class="cinfo-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><div class="cinfo-label">Call Us Now</div><div class="cinfo-val">+968 9480 6052</div></div>
+        </a>
+        <a href="https://wa.me/96894806052" class="cinfo-card">
+          <div class="cinfo-icon"><i class="fab fa-whatsapp"></i></div>
+          <div><div class="cinfo-label">WhatsApp Us</div><div class="cinfo-val">+968 9480 6052</div></div>
+        </a>
+        <div class="cinfo-card">
+          <div class="cinfo-icon"><i class="fas fa-globe"></i></div>
+          <div><div class="cinfo-label">Visit Our Website</div><div class="cinfo-val">www.shiftingmoversoman.com</div></div>
+        </div>
+        <div class="cinfo-card">
+          <div class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="cinfo-label">We Serve All Over Oman</div><div class="cinfo-val">Muscat · Sohar · Salalah · Sur · Nizwa</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Get a Free Quote</h3>
+      <p>Fill in your details and we will contact you within 30 minutes.</p>
+      <div class="fg-row">
+        <div class="fg"><label>Your Name</label><input type="text" id="q-name" placeholder="Full name"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" id="q-phone" placeholder="+968 XXXX XXXX"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>Moving From</label><input type="text" id="q-from" placeholder="Current city / area"></div>
+        <div class="fg"><label>Moving To</label><input type="text" id="q-to" placeholder="Destination city / area"></div>
+      </div>
+      <div class="fg"><label>Service Type</label>
+        <select id="q-service">
+          <option>House Moving</option>
+          <option>Villa Moving</option>
+          <option>Office Moving</option>
+          <option>Apartment Movers</option>
+          <option>Local Moving</option>
+          <option>Long-Distance Moving</option>
+          <option>Professional Packing</option>
+          <option>Unpacking Service</option>
+          <option>Loading &amp; Unloading</option>
+          <option>Furniture Moving</option>
+          <option>Storage Service</option>
+          <option>Moving Services</option>
+        </select>
+      </div>
+      <div class="fg"><label>Move Date</label><input type="date" id="q-date"></div>
+      <div class="fg"><label>Additional Notes</label><textarea id="q-notes" placeholder="Number of rooms, special items, any other details..."></textarea></div>
+      <button class="submit-btn" onclick="submitForm()"><i class="fab fa-whatsapp"></i> Send Request via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgNjgwIDY4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHRpdGxlPlNoaWZ0aW5nIGFuZCBNb3ZlcnMgaW4gT21hbiBsb2dvPC90aXRsZT4KPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgcng9IjE1MCIgZmlsbD0iI0U4NjQwQSIvPgo8cmVjdCB4PSI3MiIgeT0iNzIiIHdpZHRoPSI1MzYiIGhlaWdodD0iNTM2IiByeD0iMTIwIiBmaWxsPSIjRkZGRkZGIi8+CjxsaW5lIHgxPSIxMDAiIHkxPSIyMjAiIHgyPSIxNDgiIHkyPSIyMjAiIHN0cm9rZT0iI0ZGRDlCOCIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjExMiIgeTE9IjI0MCIgeDI9IjE0OCIgeTI9IjI0MCIgc3Ryb2tlPSIjRkZEOUI4IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iMTI0IiB5MT0iMjYwIiB4Mj0iMTQ4IiB5Mj0iMjYwIiBzdHJva2U9IiNGRkQ5QjgiIHN0cm9rZS13aWR0aD0iNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxyZWN0IHg9IjE2MCIgeT0iMjAwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjEyMCIgcng9IjEwIiBmaWxsPSIjMUExQTFBIi8+CjxyZWN0IHg9IjE3OCIgeT0iMjE4IiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIHJ4PSI0IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjEyIi8+CjxyZWN0IHg9IjM4MCIgeT0iMjQwIiB3aWR0aD0iOTIiIGhlaWdodD0iODAiIHJ4PSIxMCIgZmlsbD0iI0U4NjQwQSIvPgo8cmVjdCB4PSIzOTgiIHk9IjI1NCIgd2lkdGg9IjQyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iI0ZGRkZGRiIvPgo8Y2lyY2xlIGN4PSI0NzgiIGN5PSIyODAiIHI9IjgiIGZpbGw9IiNGRkQ5QjgiLz4KPHJlY3QgeD0iMTUwIiB5PSIzMTIiIHdpZHRoPSIzMzIiIGhlaWdodD0iMTQiIHJ4PSI0IiBmaWxsPSIjMUExQTFBIi8+CjxjaXJjbGUgY3g9IjIzMiIgY3k9IjMzNiIgcj0iMzQiIGZpbGw9IiMxQTFBMUEiLz4KPGNpcmNsZSBjeD0iMjMyIiBjeT0iMzM2IiByPSIxMyIgZmlsbD0iI0ZGRkZGRiIvPgo8Y2lyY2xlIGN4PSI0MjAiIGN5PSIzMzYiIHI9IjM0IiBmaWxsPSIjMUExQTFBIi8+CjxjaXJjbGUgY3g9IjQyMCIgY3k9IjMzNiIgcj0iMTMiIGZpbGw9IiNGRkZGRkYiLz4KPHRleHQgeD0iMzQwIiB5PSI0NTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEiIGZpbGw9IiMxQTFBMUEiPlNISUZUSU5HICZhbXA7IE1PVkVSUzwvdGV4dD4KPHJlY3QgeD0iMjk1IiB5PSI0NjgiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iI0U4NjQwQSIvPgo8dGV4dCB4PSIzNDAiIHk9IjUwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iODAwIiBsZXR0ZXItc3BhY2luZz0iMyIgZmlsbD0iI0U4NjQwQSI+SU4gT01BTjwvdGV4dD4KPC9zdmc+Cg==" alt="Shifting and Movers in Oman">
+      <div class="footer-brand-name">Shifting &amp; Movers</div>
+      <span class="footer-brand-tag">In Oman</span>
+      <p>Your trusted partner for professional relocation services across the Sultanate of Oman. Safe, affordable, and always on time — your trust is our responsibility.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#srv-house-moving"><i class="fas fa-chevron-right"></i> House Moving</a></li>
+        <li><a href="#srv-villa-moving"><i class="fas fa-chevron-right"></i> Villa Moving</a></li>
+        <li><a href="#srv-office-moving"><i class="fas fa-chevron-right"></i> Office Moving</a></li>
+        <li><a href="#srv-apartment-movers"><i class="fas fa-chevron-right"></i> Apartment Movers</a></li>
+        <li><a href="#srv-local-moving"><i class="fas fa-chevron-right"></i> Local Moving</a></li>
+        <li><a href="#srv-long-distance-moving"><i class="fas fa-chevron-right"></i> Long-Distance Moving</a></li>
+        <li><a href="#srv-professional-packing"><i class="fas fa-chevron-right"></i> Packing &amp; Unpacking</a></li>
+        <li><a href="#srv-loading-unloading"><i class="fas fa-chevron-right"></i> Loading &amp; Unloading</a></li>
+        <li><a href="#srv-furniture-moving"><i class="fas fa-chevron-right"></i> Furniture Moving</a></li>
+        <li><a href="#srv-storage-service"><i class="fas fa-chevron-right"></i> Storage Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="#why-us"><i class="fas fa-chevron-right"></i> Why Choose Us</a></li>
+        <li><a href="#process"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Client Reviews</a></li>
+        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+96894806052"><i class="fas fa-phone-alt"></i> +968 9480 6052</a></li>
+        <li><a href="https://wa.me/96894806052"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-globe"></i> shiftingmoversoman.com</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> All of Oman</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Shifting &amp; Movers in Oman. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="soc-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Call -->
+<a href="tel:+96894806052" class="float-call">
+  <i class="fas fa-phone-alt"></i> <span>Call Now: +968 9480 6052</span>
+</a>
+
+<script>
+// Navbar shrink on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 60) {
+    nav.style.padding = '0.55rem 5%';
+  } else {
+    nav.style.padding = '1rem 5%';
+  }
+});
+
+// Services dropdown
+function toggleServicesDropdown(e) {
+  e.stopPropagation();
+  document.getElementById('servicesDropdown').classList.toggle('open');
+}
+function closeServicesDropdown() {
+  document.getElementById('servicesDropdown').classList.remove('open');
+}
+document.addEventListener('click', (e) => {
+  const dd = document.getElementById('servicesDropdown');
+  if (dd && !dd.contains(e.target)) {
+    dd.classList.remove('open');
+  }
+});
+
+// Mobile menu
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  if (isOpen) {
+    links.style.display = 'none';
+  } else {
+    Object.assign(links.style, {
+      display:'flex', flexDirection:'column',
+      position:'absolute', top:'76px', left:'0', right:'0',
+      background:'white', padding:'1.5rem 5%',
+      gap:'1.2rem', boxShadow:'0 10px 30px rgba(0,0,0,0.1)',
+      zIndex:'999'
+    });
+  }
+  // close menu on link click
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.style.display = 'none'));
+}
+
+// Scroll-in animations
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.srv-card,.why-feature,.process-step,.testi-card,.cinfo-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = `opacity 0.55s ease ${i * 0.07}s, transform 0.55s ease ${i * 0.07}s`;
+  io.observe(el);
+});
+
+// Form submit -> send to WhatsApp
+function submitForm() {
+  const name = document.getElementById('q-name').value.trim();
+  const phone = document.getElementById('q-phone').value.trim();
+  const from = document.getElementById('q-from').value.trim();
+  const to = document.getElementById('q-to').value.trim();
+  const service = document.getElementById('q-service').value;
+  const date = document.getElementById('q-date').value;
+  const notes = document.getElementById('q-notes').value.trim();
+
+  if (!name || !phone) {
+    alert('Please enter your name and phone number before sending.');
+    return;
+  }
+
+  let message = `Hello Shifting & Movers in Oman, I would like a free moving quote.\n\n`;
+  message += `*Name:* ${name}\n`;
+  message += `*Phone:* ${phone}\n`;
+  if (from) message += `*Moving From:* ${from}\n`;
+  if (to) message += `*Moving To:* ${to}\n`;
+  message += `*Service:* ${service}\n`;
+  if (date) message += `*Preferred Date:* ${date}\n`;
+  if (notes) message += `*Notes:* ${notes}\n`;
+
+  const whatsappNumber = '96894806052';
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  const btn = document.querySelector('.submit-btn');
+  btn.innerHTML = '<i class="fas fa-check-circle"></i> Opening WhatsApp...';
+  btn.style.background = '#27ae60';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fab fa-whatsapp"></i> Send Request via WhatsApp';
+    btn.style.background = '';
+  }, 4000);
+
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
